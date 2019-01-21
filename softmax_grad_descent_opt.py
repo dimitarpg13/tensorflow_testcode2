@@ -17,6 +17,8 @@ y = tf.placeholder(tf.float32, [None, 10]) # 0-9 digits recognition => 10 classe
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 
+pred = tf.nn.softmax(tf.matmul(x, W) + b)
+
 # minimize error using cross entropy 
 cost = tf.reduce_mean(-tf.reduce_sum(y*tf.log(pred), reduction_indices=1))
 
